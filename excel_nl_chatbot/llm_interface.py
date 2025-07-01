@@ -1,20 +1,18 @@
+# llm_interface.py
 import streamlit as st
 from groq import Groq
 
-def ask_llm(prompt):
+def ask_llm(messages):
     """
-    Sends a prompt to the LLaMA model via Groq and returns the response text.
+    Sends full chat history to Groq and returns the latest response.
     Uses Streamlit secrets for API key management.
     """
     try:
-       
         client = Groq(api_key=st.secrets["GROQ_API_KEY"])
         
         chat_completion = client.chat.completions.create(
             model="llama3-8b-8192",
-            messages=[
-                {"role": "user", "content": prompt},
-            ],
+            messages=messages,
             temperature=0.7,
             max_tokens=512,
         )
