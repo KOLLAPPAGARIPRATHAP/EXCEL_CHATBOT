@@ -123,4 +123,4 @@ else:
 
 # Footer
 st.markdown("---")
-st.markdown("Made by Prathap | Powered by LLaMA 3 + 
+st.markdown("Made by Prathap | Powered by LLaMA  ")
