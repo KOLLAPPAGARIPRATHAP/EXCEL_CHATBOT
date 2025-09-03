@@ -12,7 +12,7 @@ def ask_llm(prompt):
         client = Groq(api_key=st.secrets["GROQ_API_KEY"])
         
         chat_completion = client.chat.completions.create(
-            model="llama3-8b-8192",
+            model="llama-3.1-8b-instant",
             messages=[
                 {"role": "user", "content": prompt},
             ],
@@ -25,3 +25,4 @@ def ask_llm(prompt):
     except Exception as e:
         st.error(f"Error communicating with Groq API: {e}")
         return "Sorry, there was an error processing your request." 
+
